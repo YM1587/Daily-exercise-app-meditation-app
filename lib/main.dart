@@ -35,6 +35,14 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
+      bottomNavigationBar: Container(
+        padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+        height: 70.0,
+        color: Colors.white, 
+        child:Row(
+          children: [SvgPicture.asset(  "assets/icons/calender.svg"),Text("Today")],
+        )
+      ),
       body: Stack(
         children: [
           Container(
