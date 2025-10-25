@@ -37,11 +37,20 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: Container(
         padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-        height: 70.0,
+        height: 80.0,
         color: Colors.white, 
-        child:Row(
-          children: [SvgPicture.asset(  "assets/icons/calender.svg"),Text("Today")],
-        )
+        child: Row(
+          
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [SvgPicture.asset("assets/icons/calendar.svg"),
+              Text("Today" ),
+          ],
+          )
+            
+          ],
+        ),
       ),
       body: Stack(
         children: [
@@ -75,7 +84,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 ),
                 Text(
-                  "Good Morning \nShishir",
+                  "Good Evening \nDaniela",
                   style: Theme.of(context)
                   .textTheme
                   .headlineMedium?.copyWith(fontWeight: FontWeight.w900,
@@ -130,6 +139,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 ],
+
                         ),
             ),
         )
