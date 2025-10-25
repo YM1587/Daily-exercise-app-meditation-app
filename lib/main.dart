@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:meditation_app/constants.dart';
+import 'package:meditation_app/screens/details_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,35 +36,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      bottomNavigationBar: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-        height: 80.0,
-        color: Colors.white, 
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            BottomNavItem(
-              svgSrc: "assets/icons/calendar.svg",
-              title: "Today",
-              press: () {},
-              isActive: true,
-            ),
-            BottomNavItem(
-              svgSrc: "assets/icons/gym.svg",
-              title: "All Exercises",
-              press: () {},
-              isActive: true,),
-            BottomNavItem(
-              svgSrc: "assets/icons/Settings.svg", 
-              title: "Settings",
-              press: () {}, 
-              isActive: true,),
-
-            
-            
-          ],
-        ),
-      ),
+      bottomNavigationBar: BottomNavBar(),
       body: Stack(
         children: [
           Container(
@@ -139,7 +112,15 @@ class HomeScreen extends StatelessWidget {
                       CategoryCard(
                         title: "Meditation",
                         svgSrc: "assets/icons/Meditation.svg",
-                        press: () {} ,
+                        press: () {Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return DetailsScreen();
+                            },
+                          ),
+                        );
+                        } ,
                       ),
                       CategoryCard(
                         title: "Yoga",
@@ -156,6 +137,45 @@ class HomeScreen extends StatelessWidget {
             ),
         )
 
+        ],
+      ),
+    );
+  }
+}
+
+class BottomNavBar extends StatelessWidget {
+  const BottomNavBar({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+      height: 80.0,
+      color: Colors.white, 
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          BottomNavItem(
+            svgSrc: "assets/icons/calendar.svg",
+            title: "Today",
+            press: () {},
+            isActive: true,
+          ),
+          BottomNavItem(
+            svgSrc: "assets/icons/gym.svg",
+            title: "All Exercises",
+            press: () {},
+            isActive: true,),
+          BottomNavItem(
+            svgSrc: "assets/icons/Settings.svg", 
+            title: "Settings",
+            press: () {}, 
+            isActive: true,),
+    
+          
+          
         ],
       ),
     );
