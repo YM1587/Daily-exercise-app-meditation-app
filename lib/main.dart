@@ -76,22 +76,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                     
                 ),
-                Container(
-                  margin: EdgeInsets.symmetric(vertical: 30.0),
-                  padding: EdgeInsets.symmetric(horizontal: 30.0,vertical: 5.0),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(29.5),
-                  ),
-                  
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: "Search",
-                      icon: SvgPicture.asset("assets/icons/search.svg"),
-                      border: InputBorder.none,
-                    ),
-                  ),
-                ),
+                SearchBar(),
                 Expanded(
                   child: GridView.count(
                     crossAxisCount: 2,
@@ -138,6 +123,32 @@ class HomeScreen extends StatelessWidget {
         )
 
         ],
+      ),
+    );
+  }
+}
+
+class SearchBar extends StatelessWidget {
+  const SearchBar({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 30.0),
+      padding: EdgeInsets.symmetric(horizontal: 30.0,vertical: 5.0),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(29.5),
+      ),
+      
+      child: TextField(
+        decoration: InputDecoration(
+          hintText: "Search",
+          icon: SvgPicture.asset("assets/icons/search.svg"),
+          border: InputBorder.none,
+        ),
       ),
     );
   }

@@ -47,6 +47,7 @@ class DetailsScreen extends StatelessWidget {
                       "Live happier and healthier by learning the fundamentals of meditation and mindfulness."
                       ),
                   ),
+                  SearchBar(),
                 ],
               ),
             )
