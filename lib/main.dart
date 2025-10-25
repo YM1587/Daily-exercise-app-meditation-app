@@ -40,14 +40,26 @@ class HomeScreen extends StatelessWidget {
         height: 80.0,
         color: Colors.white, 
         child: Row(
-          
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [SvgPicture.asset("assets/icons/calendar.svg"),
-              Text("Today" ),
-          ],
-          )
+            BottomNavItem(
+              svgSrc: "assets/icons/calendar.svg",
+              title: "Today",
+              press: () {},
+              isActive: true,
+            ),
+            BottomNavItem(
+              svgSrc: "assets/icons/gym.svg",
+              title: "All Exercises",
+              press: () {},
+              isActive: true,),
+            BottomNavItem(
+              svgSrc: "assets/icons/Settings.svg", 
+              title: "Settings",
+              press: () {}, 
+              isActive: true,),
+
+            
             
           ],
         ),
@@ -144,6 +156,32 @@ class HomeScreen extends StatelessWidget {
             ),
         )
 
+        ],
+      ),
+    );
+  }
+}
+
+class BottomNavItem extends StatelessWidget {
+  final String svgSrc;
+  final String title;
+  final VoidCallback press;
+  final bool isActive; // Removed initialization here
+  const BottomNavItem({
+    super.key, required this.svgSrc, required this.title, required this.press, required this.isActive,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: press,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          SvgPicture.asset(svgSrc,color: isActive ? kActiveIconColor: kTextColor,),
+          Text(
+            title,
+            style: TextStyle(color: isActive ? kActiveIconColor: kTextColor),),
         ],
       ),
     );
